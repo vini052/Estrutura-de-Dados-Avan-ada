@@ -1,0 +1,64 @@
+class Node:
+    def __init__(self, key):
+        self.left = self.right = None
+        self.value = key
+
+
+class BinaryTree:
+    def __init__(self):
+        self.root = None
+
+    def insert(self, key):
+        if not self.root:
+            self.root = Node(key)
+        else:
+            self._insert_recursivo(self.root, key)
+
+    def _insert_recursivo(self, node, key):
+        if key < node.value:
+            if not node.left:
+                node.left = Node(key)
+            else:
+                self._insert_recursivo(node.left, key)
+        else:
+            if not node.right:
+                node.right = Node(key)
+            else:
+                self._insert_recursivo(node.right, key)
+
+    def pre_ordem(self, node):
+        if node:
+            print(node.value, end=' ')
+            self.pre_ordem(node.left)
+            self.pre_ordem(node.right)
+
+    def em_ordem(self, node):
+        if node:
+            self.em_ordem(node.left)
+            print(node.value, end=' ')
+            self.em_ordem(node.right)
+
+    def pos_ordem(self, node):
+        if node:
+            self.pos_ordem(node.left)
+            self.pos_ordem(node.right)
+            print(node.value, end=' ')
+
+
+if __name__ == "__main__":
+    entrada = ['v','i','n','c','u','s']
+    arvore = BinaryTree()
+    for v in entrada:
+        arvore.insert(v)
+
+    print("Pré-ordem:")
+    arvore.pre_ordem(arvore.root)
+    print()
+
+    print("Em ordem:")
+    arvore.em_ordem(arvore.root)
+    print()
+
+    print("Pós-ordem:")
+    arvore.pos_ordem(arvore.root)
+    print()
