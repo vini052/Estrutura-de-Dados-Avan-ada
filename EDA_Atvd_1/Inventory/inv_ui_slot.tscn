@@ -1,0 +1,52 @@
+[gd_scene load_steps=3 format=3 uid="uid://kabyf021nsx2"]
+
+[ext_resource type="Script" path="res://Inventory/inv_ui_slot.gd" id="1_3l5cu"]
+[ext_resource type="Texture2D" uid="uid://df0xp30ae0dii" path="res://Assets/slot_inv.tres" id="1_iwioa"]
+
+[node name="inv_ui_slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(127, 40)
+offset_right = 127.0
+offset_bottom = 40.0
+script = ExtResource("1_3l5cu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.05833, 1)
+texture = ExtResource("1_iwioa")
+centered = false
+
+[node name="item_display" type="Sprite2D" parent="."]
+position = Vector2(25, 20)
+scale = Vector2(0.85, 0.85)
+
+[node name="item_name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 3.0
+offset_right = 205.0
+offset_bottom = 26.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="amount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 16.0
+offset_right = 132.0
+offset_bottom = 43.0
+scale = Vector2(0.75, 0.75)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+
+[node name="description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 47.0
+offset_top = 16.0
+offset_right = 192.0
+offset_bottom = 68.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+horizontal_alignment = 1
+autowrap_mode = 2

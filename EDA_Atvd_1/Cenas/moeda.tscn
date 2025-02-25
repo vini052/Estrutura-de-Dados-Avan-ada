@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://jjei5vr8ogn7"]
+
+[ext_resource type="Texture2D" uid="uid://mcyqa3w33ohm" path="res://Assets/GIMMIGHOULCOIN.png" id="1_ex8pg"]
+[ext_resource type="Script" path="res://Cenas/moeda.gd" id="1_wmm0c"]
+[ext_resource type="Resource" uid="uid://bn7m2ge10lnhw" path="res://Inventory/items/coin.tres" id="2_2f2lm"]
+[ext_resource type="AudioStream" uid="uid://djdml2msogjxq" path="res://Assets/Pkmn-level-up.mp3" id="4_k1n3s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5qbhm"]
+radius = 34.0147
+
+[node name="moeda" type="Node2D"]
+script = ExtResource("1_wmm0c")
+item = ExtResource("2_2f2lm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ex8pg")
+
+[node name="pickable_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickable_area"]
+shape = SubResource("CircleShape2D_5qbhm")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_k1n3s")
+
+[connection signal="body_entered" from="pickable_area" to="." method="_on_pickable_area_body_entered"]
+[connection signal="body_exited" from="pickable_area" to="." method="_on_pickable_area_body_exited"]

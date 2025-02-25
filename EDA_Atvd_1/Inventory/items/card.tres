@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://yxgi2aicqin8"]
+
+[ext_resource type="Script" path="res://Inventory/inventory_item.gd" id="1_5phsv"]
+[ext_resource type="Texture2D" uid="uid://c3433raihqb3x" path="res://Assets/Card_Key.png" id="2_2nwlr"]
+
+[resource]
+script = ExtResource("1_5phsv")
+name = "Cartão de Acesso"
+texture = ExtResource("2_2nwlr")
+descr = "Cartão de Acesso ao Laboratótio Carvalho"
+amout = 0
