@@ -14,9 +14,9 @@ Requisitos Funcionais
 
 3 - Mapa e Estrutura do Mundo
 
-  - O mapa do jogo segue um formato de árvore binária.
-  - Cada galho da árvore representa uma cidade.
-  - O Player pode viajar entre cidades seguindo a estrutura do mapa.
+  - O mapa do jogo segue um formato de árvore.
+  - Cada galho da árvore representa uma cidade/casas.
+  - O Player pode viajar entre cidades e casas seguindo a estrutura do mapa.
 
 4 - Efeitos Sonoros
 
