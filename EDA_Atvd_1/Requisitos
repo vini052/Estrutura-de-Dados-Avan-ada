@@ -1,0 +1,39 @@
+Requisitos Funcionais
+
+1 - Movimentação do Player
+
+  - O Player pode se mover usando as setas do teclado.
+  - O Player pode interagir com objetos ao pressionar a barra de espaço.
+
+2 - Interação e Inventário
+
+  - Itens coletáveis aparecem no chão e podem ser coletados pelo Player.
+  - Ao coletar um item, ele é adicionado ao inventário.
+  - O inventário tem formato de lista com 6 slots.
+  - Itens do mesmo tipo são empilhados no mesmo slot.
+
+3 - Mapa e Estrutura do Mundo
+
+  - O mapa do jogo segue um formato de árvore binária.
+  - Cada galho da árvore representa uma cidade.
+  - O Player pode viajar entre cidades seguindo a estrutura do mapa.
+
+4 - Efeitos Sonoros
+
+  - Um efeito sonoro é reproduzido ao coletar um item.
+  - Um efeito sonoro é reproduzido ao atingir um marco no jogo.
+
+Requisitos Não Funcionais
+
+1 - Performance
+
+  - O jogo deve rodar de forma fluida, evitando travamentos ao carregar novas áreas.
+
+2 - Usabilidade
+
+  - Os controles devem ser intuitivos e responsivos.
+  - O inventário deve ser de fácil acesso e visualização.
+
+3 - Som e Feedback
+
+  - Os efeitos sonoros devem ser claros e proporcionar feedback imediato ao jogador.
