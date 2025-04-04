@@ -1,0 +1,24 @@
+Explicação da Atividade
+
+
+1. Profundidade Máxima (max_depth):
+A profundidade máxima de uma árvore binária é o número de nós do caminho mais longo do nó raiz até uma folha.
+
+A função é recursiva:
+Se o nó for None, retorna 0.
+Senão, retorna 1 + maior profundidade entre os filhos esquerdo e direito.
+
+2. Travessias (pré-ordem, em ordem, pós-ordem):
+As travessias percorrem todos os nós da árvore, mas em ordens diferentes:
+
+Pré-ordem: raiz → esquerda → direita
+Em ordem: esquerda → raiz → direita
+Pós-ordem: esquerda → direita → raiz
+
+Cada função retorna uma lista com os valores visitados, e a quantidade de nós percorridos é simplesmente o len() dessa lista.
+
+3. Construção da árvore:
+A árvore é criada a partir de uma lista que simula os níveis da árvore, com None representando a ausência de nós.
+
+Isso permite simular árvores complexas sem escrevê-las manualmente.
+
