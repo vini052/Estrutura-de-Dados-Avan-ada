@@ -39,26 +39,21 @@ def postorder_traversal(root):
 def main():
     lst = [5, 3, 8, 1, 4, 7, 9, None, 2, None, None, 6]
     original_tree = build_tree_from_list(lst)
-
     original_depth = max_depth(original_tree)
 
     preorder_list = preorder_traversal(original_tree)
     inorder_list = inorder_traversal(original_tree)
     postorder_list = postorder_traversal(original_tree)
 
-    preorder_tree = build_tree_from_list(preorder_list)
-    inorder_tree = build_tree_from_list(inorder_list)
-    postorder_tree = build_tree_from_list(postorder_list)
-
     print(lst)
     print(preorder_list)
     print(inorder_list)
     print(postorder_list)
     print("---------------------------------------------------")
-    print("Profundidade da árvore original:", original_depth)
-    print("Profundidade da árvore Pré-Ordem:", max_depth(preorder_tree))
-    print("Profundidade da árvore Em Ordem:", max_depth(inorder_tree))
-    print("Profundidade da árvore Pós-Ordem:", max_depth(postorder_tree))
+    print("Profundidade da árvore Original:", original_depth)
+    print("Quantidade de nós percorridos Pré-Ordem:",len(preorder_list))
+    print("Quantidade de nós percorridos Em Ordem:", len(inorder_list))
+    print("Quantidade de nós percorridos Pós-Ordem:", len(postorder_list))
 
 
 main()
