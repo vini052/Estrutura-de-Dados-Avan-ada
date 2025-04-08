@@ -25,35 +25,46 @@ def build_tree_from_list(lst):
 
 
 def preorder_traversal(root):
-    return [root.val] + preorder_traversal(root.left) + preorder_traversal(root.right) if root else []
+    return [root.val if root else None] + preorder_traversal(root.left) + preorder_traversal(root.right) if root else []
 
 
 def inorder_traversal(root):
-    return inorder_traversal(root.left) + [root.val] + inorder_traversal(root.right) if root else []
+    return inorder_traversal(root.left) + [root.val if root else None] + inorder_traversal(root.right) if root else []
 
 
 def postorder_traversal(root):
-    return postorder_traversal(root.left) + postorder_traversal(root.right) + [root.val] if root else []
+    return postorder_traversal(root.left) + postorder_traversal(root.right) + [
+        root.val if root else None] if root else []
+
+
+def clean_traversal_list(lst):
+    while lst and lst[-1] is None:
+        lst.pop()
+    return lst
 
 
 def main():
     lst = [5, 3, 8, 1, 4, 7, 9, None, 2, None, None, 6]
     original_tree = build_tree_from_list(lst)
+
     original_depth = max_depth(original_tree)
 
-    preorder_list = preorder_traversal(original_tree)
-    inorder_list = inorder_traversal(original_tree)
-    postorder_list = postorder_traversal(original_tree)
+    preorder_list = clean_traversal_list(preorder_traversal(original_tree))
+    inorder_list = clean_traversal_list(inorder_traversal(original_tree))
+    postorder_list = clean_traversal_list(postorder_traversal(original_tree))
 
-    print(lst)
-    print(preorder_list)
-    print(inorder_list)
-    print(postorder_list)
-    print("---------------------------------------------------")
-    print("Profundidade da árvore Original:", original_depth)
-    print("Quantidade de nós percorridos Pré-Ordem:",len(preorder_list))
-    print("Quantidade de nós percorridos Em Ordem:", len(inorder_list))
-    print("Quantidade de nós percorridos Pós-Ordem:", len(postorder_list))
+    preorder_tree = build_tree_from_list(preorder_list)
+    inorder_tree = build_tree_from_list(inorder_list)
+    postorder_tree = build_tree_from_list(postorder_list)
+
+    print("Lista Pré-Ordem:", preorder_list)
+    print("Lista Em Ordem:", inorder_list)
+    print("Lista Pós-Ordem:", postorder_list)
+    print("\nProfundidade da árvore original:", original_depth)
+    print("Profundidade da árvore Pré-Ordem:", max_depth(preorder_tree))
+    print("Profundidade da árvore Em Ordem:", max_depth(inorder_tree))
+    print("Profundidade da árvore Pós-Ordem:", max_depth(postorder_tree))
 
 
-main()
+if __name__ == "__main__":
+    main()
