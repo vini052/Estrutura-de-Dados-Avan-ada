@@ -11,10 +11,10 @@ Explicação da Atividade
 
 2. Abordagem:
   TreeNode: Define a estrutura do nó da árvore binária.
-  max_depth(root): Recursivamente retorna 1 + max(profundidade da esquerda, profundidade da direita).
-  build_tree_from_list(lst): Constrói a árvore binária a partir de uma lista level-order, respeitando None como ausência de filhos.
+  dfs(root): Recursivamente retorna 1 + max(profundidade da esquerda, profundidade da direita).
+  construtor_arvore(lst): Constrói a árvore binária a partir de uma lista level-order, respeitando None como ausência de filhos.
   
-  Traversals:
+  Travessias:
   Pré-Ordem (Root, Left, Right)
   Em Ordem (Left, Root, Right)
   Pós-Ordem (Left, Right, Root)
