@@ -1,24 +1,30 @@
 Explicação da Atividade
 
 
-1. Profundidade Máxima (max_depth):
-A profundidade máxima de uma árvore binária é o número de nós do caminho mais longo do nó raiz até uma folha.
+1. Problema:
 
-A função é recursiva:
-Se o nó for None, retorna 0.
-Senão, retorna 1 + maior profundidade entre os filhos esquerdo e direito.
+  Construir a árvore binária a partir do vetor.
+  Calcular a profundidade máxima da árvore.
+  Gerar listas de pré-ordem, em ordem e pós-ordem da árvore.
+  Reconstruir árvores a partir dessas listas de travessia.
+  Comparar as profundidades dessas árvores reconstruídas com a original.
 
-2. Travessias (pré-ordem, em ordem, pós-ordem):
-As travessias percorrem todos os nós da árvore, mas em ordens diferentes:
-
-Pré-ordem: raiz → esquerda → direita
-Em ordem: esquerda → raiz → direita
-Pós-ordem: esquerda → direita → raiz
-
-Cada função retorna uma lista com os valores visitados, e a quantidade de nós percorridos é simplesmente o len() dessa lista.
-
-3. Construção da árvore:
-A árvore é criada a partir de uma lista que simula os níveis da árvore, com None representando a ausência de nós.
-
-Isso permite simular árvores complexas sem escrevê-las manualmente.
+2. Abordagem:
+  TreeNode: Define a estrutura do nó da árvore binária.
+  max_depth(root): Recursivamente retorna 1 + max(profundidade da esquerda, profundidade da direita).
+  build_tree_from_list(lst): Constrói a árvore binária a partir de uma lista level-order, respeitando None como ausência de filhos.
+  
+  Traversals:
+  Pré-Ordem (Root, Left, Right)
+  Em Ordem (Left, Root, Right)
+  Pós-Ordem (Left, Right, Root)
+  clean_traversal_list: Remove None ao final das listas de travessia para evitar nós vazios extras na reconstrução.
+  
+  main():
+  
+  Constrói a árvore original a partir da lista dada.
+  Calcula sua profundidade.
+  Gera listas de travessia.
+  Reconstrói árvores a partir dessas listas.
+  Compara as profundidades.
 
