@@ -5,39 +5,39 @@ class TreeNode:
         self.right = right
 
 
-def max_depth(root):
+def dfs(root):
     if not root:
         return 0
-    return 1 + max(max_depth(root.left), max_depth(root.right))
+    return 1 + max(dfs(root.left), dfs(root.right))
 
 
-def build_tree_from_list(lst):
+def construtor_arvore(lst):
     if not lst:
         return None
     nodes = [TreeNode(val) if val is not None else None for val in lst]
-    kids = nodes[::-1]
-    root = kids.pop()
+    filhos = nodes[::-1]
+    root = filhos.pop()
     for node in nodes:
         if node:
-            if kids: node.left = kids.pop()
-            if kids: node.right = kids.pop()
+            if filhos: node.left = filhos.pop()
+            if filhos: node.right = filhos.pop()
     return root
 
 
-def preorder_traversal(root):
-    return [root.val if root else None] + preorder_traversal(root.left) + preorder_traversal(root.right) if root else []
+def pre_ordem(root):
+    return [root.val if root else None] + pre_ordem(root.left) + pre_ordem(root.right) if root else []
 
 
-def inorder_traversal(root):
-    return inorder_traversal(root.left) + [root.val if root else None] + inorder_traversal(root.right) if root else []
+def em_ordem(root):
+    return em_ordem(root.left) + [root.val if root else None] + em_ordem(root.right) if root else []
 
 
-def postorder_traversal(root):
-    return postorder_traversal(root.left) + postorder_traversal(root.right) + [
+def pos_ordem(root):
+    return pos_ordem(root.left) + pos_ordem(root.right) + [
         root.val if root else None] if root else []
 
 
-def clean_traversal_list(lst):
+def limpar_lista(lst):
     while lst and lst[-1] is None:
         lst.pop()
     return lst
@@ -45,25 +45,25 @@ def clean_traversal_list(lst):
 
 def main():
     lst = [5, 3, 8, 1, 4, 7, 9, None, 2, None, None, 6]
-    original_tree = build_tree_from_list(lst)
+    arvore_original = construtor_arvore(lst)
 
-    original_depth = max_depth(original_tree)
+    busca_original = dfs(arvore_original)
 
-    preorder_list = clean_traversal_list(preorder_traversal(original_tree))
-    inorder_list = clean_traversal_list(inorder_traversal(original_tree))
-    postorder_list = clean_traversal_list(postorder_traversal(original_tree))
+    vetor_pre_ordem = limpar_lista(pre_ordem(arvore_original))
+    vetor_em_ordem = limpar_lista(em_ordem(arvore_original))
+    vetor_pos_ordem = limpar_lista(pos_ordem(arvore_original))
 
-    preorder_tree = build_tree_from_list(preorder_list)
-    inorder_tree = build_tree_from_list(inorder_list)
-    postorder_tree = build_tree_from_list(postorder_list)
+    arvore_pre_ordem = construtor_arvore(vetor_pre_ordem)
+    arvore_em_ordem = construtor_arvore(vetor_em_ordem)
+    arvore_pos_ordem = construtor_arvore(vetor_pos_ordem)
 
-    print("Lista Pré-Ordem:", preorder_list)
-    print("Lista Em Ordem:", inorder_list)
-    print("Lista Pós-Ordem:", postorder_list)
-    print("\nProfundidade da árvore original:", original_depth)
-    print("Profundidade da árvore Pré-Ordem:", max_depth(preorder_tree))
-    print("Profundidade da árvore Em Ordem:", max_depth(inorder_tree))
-    print("Profundidade da árvore Pós-Ordem:", max_depth(postorder_tree))
+    print("Lista Pré-Ordem:", vetor_pre_ordem)
+    print("Lista Em Ordem:", vetor_em_ordem)
+    print("Lista Pós-Ordem:", vetor_pos_ordem)
+    print("\nProfundidade da árvore original:", busca_original)
+    print("Profundidade da árvore Pré-Ordem:", dfs(arvore_pre_ordem))
+    print("Profundidade da árvore Em Ordem:", dfs(arvore_em_ordem))
+    print("Profundidade da árvore Pós-Ordem:", dfs(arvore_pos_ordem))
 
 
 if __name__ == "__main__":
